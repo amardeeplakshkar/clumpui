@@ -162,3 +162,5 @@ export function ExampleForm() {
     </Card>
   )
 }
+
+export default ExampleForm
