@@ -4,7 +4,17 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     registry: ["./registry/**/*"],
   },
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        hostname: "*",
+      },
+    ],
+    minimumCacheTTL: 2678400,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
 };
 
 export default nextConfig;

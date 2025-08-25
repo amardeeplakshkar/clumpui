@@ -1,16 +1,18 @@
 'use client'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import React, { lazy, Suspense, useMemo } from 'react'
+import React, { lazy, Suspense, useMemo, useState } from 'react'
 import { Card } from "@/components/ui/card";
 import { File, Folder, Tree } from "@/components/ui/file-tree";
-import { buildElementsFromJsonPaths } from "@/lib/utils";
+import { buildElementsFromJsonPaths, cn } from "@/lib/utils";
 import { CodeBlock, CodeBlockGroup, CodeBlockCode } from "@/components/ui/code-block";
-import { Check, Copy, Maximize, RotateCcw } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Copy, Maximize, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { OpenInV0Button } from '../ui/open-in-v0-button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../ui/dialog';
+import PackageManagerTabs from '../ui/tabs-02';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
 
 const componentMap: Record<string, () => Promise<{ default: React.ComponentType<any> }>> = {
     "complex-component": () => import(`@/registry/new-york/complex-component/complex-component`),
@@ -25,15 +27,23 @@ const ComponentPreview = ({ component }: { component: any }) => {
     const [selectedFileId, setSelectedFileId] = React.useState<string | null>(null);
     const [selectedFileContent, setSelectedFileContent] = React.useState<string | null>(null);
     const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
-
+    const [isOpen, setIsOpen] = useState(false)
     const ELEMENTS = buildElementsFromJsonPaths(component.files);
 
     const LazyComponent = useMemo(() => {
-        const importer = componentMap[component.name];
-        if (!importer) {
-            throw new Error(`Unknown component: ${component.name}`);
+        const componentName = component.name;
+
+        const allowedComponents = [
+            "action-search-bar", "ai-input-search", "ai-loading", "ai-prompt", "ai-text-loading", "ai-voice", "apple-activity-card", "attract-button", "avatar-picker", "background-paths", "beams-background", "bento-grid", "button", "card-flip", "card-stack", "carousel-cards", "command-button", "complex-component", "currency-transfer", "dynamic-text", "example-form", "file-upload", "glitch-text", "gradient-button", "hello-world", "hold-button", "liquid-glass-card", "matrix-text", "particle-button", "profile-dropdown", "scroll-text", "shape-hero", "shimmer-text", "sliced-text", "smooth-drawer", "smooth-tab", "social-button", "switch-button", "swoosh-text", "team-selector", "toolbar", "tweet-card", "type-writer", "v0-button"
+        ]
+            ;
+        if (!allowedComponents.includes(componentName)) {
+            throw new Error(`Unknown or unsafe component: ${componentName}`);
         }
-        return lazy(importer);
+
+        return lazy(() =>
+            import(`@/registry/new-york/${componentName}/${componentName}`)
+        );
     }, [component.name]);
 
     const reloadComponent = () => {
@@ -64,19 +74,35 @@ const ComponentPreview = ({ component }: { component: any }) => {
             <nav>
 
             </nav>
-            <Tabs defaultValue='code'>
-                <TabsList>
-                    <TabsTrigger value='code'>
-                        Code
-                    </TabsTrigger>
-                    <TabsTrigger value='preview'>
-                        Preview
-                    </TabsTrigger>
-                </TabsList>
-                <TabsContent value='code' className="grid grid-cols-6 w-full">
-
+            <Tabs className='' defaultValue='preview'>
+                <div className='flex items-center justify-between'>
+                    <TabsList>
+                        <TabsTrigger value='code'>
+                            Code
+                        </TabsTrigger>
+                        <TabsTrigger value='preview'>
+                            Preview
+                        </TabsTrigger>
+                    </TabsList>
+                    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+                        <DropdownMenuTrigger asChild>
+                            <Button className=''>
+                                <span className=''>
+                                    Install
+                                </span>
+                                <ChevronDown className={cn("-m-1", isOpen && "rotate-180")} />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className='border-0 rounded-xl p-0'>
+                            <PackageManagerTabs
+                                registryUrl={'"' + process.env.NEXT_PUBLIC_BASE_URL + '/r/' + component.name + '.json"'}
+                            />
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
+                <TabsContent value='code' className="md:grid  grid-cols-5 w-full">
                     <Tree
-                        className="col-span-2 bg-red-500 rounded-md bg-background p-2"
+                        className="col-span-1 bg-red-500 rounded-md bg-background"
                         initialSelectedId={selectedFileId ?? '3'}
                         initialExpandedItems={[
                             "1",
@@ -123,13 +149,13 @@ const ComponentPreview = ({ component }: { component: any }) => {
                                 <CodeBlockCode theme={theme === "dark" ? "github-dark" : "github-light"} code={code} language="tsx" />
                             </CodeBlock>
                         ) : (
-                            <p className="text-muted-foreground p-4">Click a file to view its content.</p>
+                            <p className="text-muted-foreground p-4 flex-1">Click a file to view its content.</p>
                         )}
                     </Card>
                 </TabsContent>
-                <TabsContent value='preview'>
+                <TabsContent value='preview' className='md:m-0'>
                     <Card className="bg-secondary-foreground/5">
-                        <div className="flex items-center justify-center min-h-[400px] relative">
+                        <div className="flex flex-1 items-center justify-center min-h-[83.5dvh] md:min-h-[81.5dvh] max-h-[83.5dvh] md:max-h-[81.5dvh] overflow-y-auto relative">
                             <Suspense fallback={
                                 <>
                                     Loading...
@@ -137,7 +163,7 @@ const ComponentPreview = ({ component }: { component: any }) => {
                             }>
                                 <LazyComponent key={key} />
                             </Suspense>
-                            <div className="flex items-center gap-2 text-white absolute top-2 right-2">
+                            <div className="flex  items-center gap-2 text-white absolute top-2 right-2">
                                 <Button
                                     size="icon"
                                     variant="ghost"
@@ -222,7 +248,7 @@ function renderTree(
 
     if (element.children && element.children.length > 0) {
         return (
-            <Folder key={element.id} element={element.name} value={element.id}>
+            <Folder className='truncate' key={element.id} element={element.name} value={element.id}>
                 {element.children.map((child: any) =>
                     renderTree(child, onSelectFile, selectedFileId)
                 )}

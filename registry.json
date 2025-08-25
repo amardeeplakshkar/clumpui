@@ -4,6 +4,523 @@
   "homepage": "https://acme.com",
   "items": [
     {
+        "name": "ai-prompt",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["textarea", "button", "dropdown-menu"],
+        "files": [
+            {
+                "path": "registry/new-york/ai-prompt/ai-prompt.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "hooks/use-auto-resize-textarea.ts",
+                "type": "registry:hook"
+            },
+            {
+                "path": "components/icons/anthropic.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/anthropic-dark.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "command-button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/command-button/command-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+     {
+        "name": "button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "files": [
+            {
+                "path": "registry/new-york/button/button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "card-flip",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "files": [
+            {
+                "path": "registry/new-york/card-flip/card-flip.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "smooth-drawer",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "registryDependencies": ["drawer", "button"],
+        "files": [
+            {
+                "path": "registry/new-york/smooth-drawer/smooth-drawer.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "shape-hero",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/shape-hero/shape-hero.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "ai-text-loading",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/ai-text-loading/ai-text-loading.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "shimmer-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/shimmer-text/shimmer-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "carousel-cards",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "registryDependencies": ["card", "badge", "button"],
+        "files": [
+            {
+                "path": "registry/new-york/carousel-cards/carousel-cards.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "file-upload",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "files": [
+            {
+                "path": "registry/new-york/file-upload/file-upload.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "action-search-bar",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["input"],
+        "files": [
+            {
+                "path": "registry/new-york/action-search-bar/action-search-bar.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "hooks/use-debounce.ts",
+                "type": "registry:hook"
+            }
+        ]
+    },
+    {
+        "name": "ai-input-search",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "registryDependencies": ["textarea"],
+        "files": [
+            {
+                "path": "registry/new-york/ai-input-search/ai-input-search.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "hooks/use-auto-resize-textarea.ts",
+                "type": "registry:hook"
+            }
+        ]
+    },
+    {
+        "name": "currency-transfer",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["card", "tooltip"],
+        "files": [
+            {
+                "path": "registry/new-york/currency-transfer/currency-transfer.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "background-paths",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/background-paths/background-paths.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "beams-background",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/beams-background/beams-background.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "apple-activity-card",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/apple-activity-card/apple-activity-card.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "ai-voice",
+        "type": "registry:component",
+        "dependencies": ["motion", "lucide-react"],
+        "files": [
+            {
+                "path": "registry/new-york/ai-voice/ai-voice.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "smooth-tab",
+        "type": "registry:component",
+        "dependencies": ["motion", "lucide-react"],
+        "files": [
+            {
+                "path": "registry/new-york/smooth-tab/smooth-tab.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "team-selector",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/team-selector/team-selector.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "switch-button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/switch-button/switch-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "bento-grid",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "files": [
+            {
+                "path": "registry/new-york/bento-grid/bento-grid.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/anthropic.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/anthropic-dark.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/gemini.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/open-ai.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/open-ai-dark.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/mistral.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/deepseek.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "social-button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/social-button/social-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "hold-button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/hold-button/hold-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "attract-button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/attract-button/attract-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "gradient-button",
+        "type": "registry:component",
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/gradient-button/gradient-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "v0-button",
+        "type": "registry:component",
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/v0-button/v0-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "toolbar",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "files": [
+            {
+                "path": "registry/new-york/toolbar/toolbar.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "ai-loading",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/ai-loading/ai-loading.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "card-stack",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/card-stack/card-stack.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "avatar-picker",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["card", "button", "input"],
+        "files": [
+            {
+                "path": "registry/new-york/avatar-picker/avatar-picker.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "type-writer",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/type-writer/type-writer.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "swoosh-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/swoosh-text/swoosh-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "sliced-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/sliced-text/sliced-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "glitch-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/glitch-text/glitch-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "matrix-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/matrix-text/matrix-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "dynamic-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/dynamic-text/dynamic-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "particle-button",
+        "type": "registry:component",
+        "dependencies": ["lucide-react", "motion"],
+        "registryDependencies": ["button"],
+        "files": [
+            {
+                "path": "registry/new-york/particle-button/particle-button.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "tweet-card",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "files": [
+            {
+                "path": "registry/new-york/tweet-card/tweet-card.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "scroll-text",
+        "type": "registry:component",
+        "dependencies": ["motion"],
+        "files": [
+            {
+                "path": "registry/new-york/scroll-text/scroll-text.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "liquid-glass-card",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "files": [
+            {
+                "path": "registry/new-york/liquid-glass-card/liquid-glass-card.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
+        "name": "profile-dropdown",
+        "type": "registry:component",
+        "dependencies": ["lucide-react"],
+        "registryDependencies": ["dropdown-menu"],
+        "files": [
+            {
+                "path": "registry/new-york/profile-dropdown/profile-dropdown.tsx",
+                "type": "registry:component"
+            },
+            {
+                "path": "components/icons/gemini.tsx",
+                "type": "registry:component"
+            }
+        ]
+    },
+    {
       "name": "hello-world",
       "type": "registry:component",
       "title": "Hello World",
@@ -38,7 +555,7 @@
       "registryDependencies": ["card"],
       "files": [
         {
-          "path": "registry/new-york/complex-component/page.tsx",
+          "path": "registry/new-york/complex-component/complex-component.tsx",
           "type": "registry:page",
           "target": "app/pokemon/page.tsx"
         },
