@@ -30,10 +30,10 @@ const OPENAI_SVG = (
     <div>
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="256"
-            height="260"
+            width="24"
+            height="24"
             preserveAspectRatio="xMidYMid"
-            viewBox="0 0 256 260"
+            viewBox="0 0 24 24"
             aria-label="o3-mini icon"
             className="dark:hidden block"
         >

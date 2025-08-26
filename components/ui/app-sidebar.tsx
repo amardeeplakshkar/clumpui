@@ -13,7 +13,9 @@ import {
   PieChart,
   Send,
   Settings2,
+  SparklesIcon,
   SquareTerminal,
+  Text,
 } from "lucide-react"
 
 import { NavMain } from "@/components/ui/nav-main"
@@ -40,72 +42,83 @@ const data = {
   },
   navMain: [
     {
+      title: "Documentation",
+      url: "#",
+      isActive: true,
+      icon: BookOpen,
+      items: siteConfig.docs.map((component) => ({
+        title: component.title,
+        url: component.path,
+        Icon: component.Icon && component.Icon,
+        path: component.path
+      })),
+    },
+    {
+      title: "AI Components",
+      url: "#",
+      icon: SparklesIcon,
+      items: siteConfig.aiComponents.map((component) => ({
+        title: component.title,
+        url: component.path,
+        Icon: component.Icon && component.Icon
+      })),
+    },
+    {
       title: "Components",
       url: "#",
       icon: Component,
-      isActive: true,
+      isActive: false,
       items: siteConfig.components.map((component) => ({
-      title: component.title,
-      url: component.path,
-      Icon: component.Icon && component.Icon
-    })),
+        title: component.title,
+        url: component.path,
+        Icon: component.Icon && component.Icon
+      })),
     },
     {
-      title: "Docs",
+      title: "Texts",
       url: "#",
-      icon: File,
-     items: siteConfig.docs.map((component) => ({
-      title: component.title,
-      url: component.path,
-      Icon: component.Icon && component.Icon
-    })),
+      icon: Text,
+      isActive: false,
+      items: siteConfig.textComponents.map((component) => ({
+        title: component.title,
+        url: component.path,
+        Icon: component.Icon && component.Icon
+      })),
     },
     {
-      title: "Documentation",
+      title: "Buttons",
       url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
+      icon: Component,
+      isActive: false,
+      items: siteConfig.buttonComponents.map((component) => ({
+        title: component.title,
+        url: component.path,
+        Icon: component.Icon && component.Icon
+      })),
     },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+    // {
+    //   title: "Settings",
+    //   url: "#",
+    //   icon: Settings2,
+    //   items: [
+    //     {
+    //       title: "General",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Team",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Billing",
+    //       url: "#",
+    //     },
+    //     {
+    //       title: "Limits",
+    //       url: "#",
+    //     },
+    //   ],
+    // },
   ],
   navSecondary: [
     {
@@ -160,12 +173,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        {/* <NavProjects projects={data.projects} /> */}
+        {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
       </SidebarContent>
-      <SidebarFooter>
+      {/* <SidebarFooter>
         <NavUser user={data.user} />
-      </SidebarFooter>
+      </SidebarFooter> */}
     </Sidebar>
   )
 }

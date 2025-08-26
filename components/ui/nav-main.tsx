@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/sidebar"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 export function NavMain({
   items,
@@ -33,10 +34,12 @@ export function NavMain({
       title: string
       url: string,
       Icon?: React.ForwardRefExoticComponent<Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>
+      path?:string
     }[]
   }[]
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname()
 
   return (
     <SidebarGroup>
@@ -65,7 +68,7 @@ export function NavMain({
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
+                      <SidebarMenuSubButton isActive={pathname === "/components/"+subItem.title || pathname === subItem.path} asChild>
                         <a href={subItem.url}>
                           {
                             subItem.Icon &&
