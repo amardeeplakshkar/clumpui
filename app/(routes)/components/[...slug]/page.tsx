@@ -69,7 +69,11 @@ export async function generateStaticParams() {
     const dir = path.join(process.cwd(), 'public', 'r');
     const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
 
-    return files.map(file => {
+    const componentFiles = files.filter(
+        file => !["utils.json", "tokens.json"].includes(file)
+    );
+
+    return componentFiles.map(file => {
         const slug = file.replace(/\.json$/, '');
         return { slug: [slug] };
     });
@@ -86,9 +90,9 @@ export default async function ComponentPage(props: {
 
     return (
         <>
-          <ComponentPreview
-          component={component}
-          />
+            <ComponentPreview
+                component={component}
+            />
         </>
     );
 }
