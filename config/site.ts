@@ -336,3 +336,32 @@ export const siteConfig = {
 };
 
 export type SiteConfig = typeof siteConfig;
+
+export const componentGroups = {
+  "ai-components": siteConfig.aiComponents,
+  "text-components": siteConfig.textComponents,
+  "button-components": siteConfig.buttonComponents,
+  "card-components": siteConfig.cardComponents,
+  "other-components": siteConfig.components,
+};
+
+export type ComponentGroupKey = keyof typeof componentGroups;
+
+export const ComponentAuthor = [
+  {
+    authorName: "Magic UI",
+    website: "https://magicui.design",
+    components: [
+      "smooth-tab",
+      "toolbar"
+    ]
+  },
+  {
+    authorName: "Kokonut UI",
+    website: "https://kokonutui.com",
+    components: [
+      "ai-input-search",
+      "ai-loading"
+    ]
+  }
+]

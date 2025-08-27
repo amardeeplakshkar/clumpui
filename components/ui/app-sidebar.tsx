@@ -8,6 +8,7 @@ import {
   Component,
   File,
   Frame,
+  IdCard,
   LifeBuoy,
   Map,
   PieChart,
@@ -69,6 +70,17 @@ const data = {
       icon: Component,
       isActive: false,
       items: siteConfig.components.map((component) => ({
+        title: component.title,
+        url: component.path,
+        Icon: component.Icon && component.Icon
+      })),
+    },
+     {
+      title: "Cards",
+      url: "#",
+      icon: IdCard,
+      isActive: false,
+      items: siteConfig.cardComponents.map((component) => ({
         title: component.title,
         url: component.path,
         Icon: component.Icon && component.Icon

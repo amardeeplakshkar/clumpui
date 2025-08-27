@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   creator: siteConfig.author,
   metadataBase: new URL(siteConfig.url),
   openGraph: {
-    images: "/opengraph-image.png",
+    images: "/og-image.png",
   },
   icons: {
     icon: "/favicon.ico",

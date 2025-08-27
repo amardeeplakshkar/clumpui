@@ -4,15 +4,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import React, { lazy, Suspense, useMemo, useState } from 'react'
 import { Card } from "@/components/ui/card";
 import { File, Folder, Tree } from "@/components/ui/file-tree";
-import { buildElementsFromJsonPaths, cn } from "@/lib/utils";
+import { buildElementsFromJsonPaths, cn, getAuthorProfile } from "@/lib/utils";
 import { CodeBlock, CodeBlockGroup, CodeBlockCode } from "@/components/ui/code-block";
-import { Check, ChevronDown, ChevronUp, Copy, Maximize, RotateCcw } from "lucide-react";
+import { Check, ChevronDown, ChevronUp, Copy, Download, InfoIcon, Maximize, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { OpenInV0Button } from '../ui/open-in-v0-button';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '../ui/dialog';
 import PackageManagerTabs from '../ui/tabs-02';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
+import { InfoCard } from './CoreCard';
 
 const componentMap: Record<string, () => Promise<{ default: React.ComponentType<any> }>> = {
     "complex-component": () => import(`@/registry/new-york/complex-component/complex-component`),
@@ -29,6 +31,8 @@ const ComponentPreview = ({ component }: { component: any }) => {
     const [selectedFileName, setSelectedFileName] = React.useState<string | null>(null);
     const [isOpen, setIsOpen] = useState(false)
     const ELEMENTS = buildElementsFromJsonPaths(component.files);
+
+    const profile = getAuthorProfile(component.name);
 
     const LazyComponent = useMemo(() => {
         const componentName = component.name;
@@ -84,21 +88,39 @@ const ComponentPreview = ({ component }: { component: any }) => {
                             Preview
                         </TabsTrigger>
                     </TabsList>
-                    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-                        <DropdownMenuTrigger asChild>
-                            <Button className=''>
-                                <span className=''>
+                    <h2 className='md:block hidden text-lg font-semibold'>
+                        {component.name.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}
+                    </h2>
+                    <div className='flex items-center gap-2'>
+                        <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+                            <DropdownMenuTrigger asChild>
+                                <Button className=''>
+                                    <Download />
                                     Install
-                                </span>
-                                <ChevronDown className={cn("-m-1", isOpen && "rotate-180")} />
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className='border-0 rounded-xl p-0'>
-                            <PackageManagerTabs
-                                registryUrl={'"' + process.env.NEXT_PUBLIC_BASE_URL + '/r/' + component.name + '.json"'}
-                            />
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                                    <ChevronDown className={cn("-m-1", isOpen && "rotate-180")} />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className='border-0 rounded-xl p-0'>
+                                <PackageManagerTabs
+                                    registryUrl={'"' + process.env.NEXT_PUBLIC_BASE_URL + '/r/' + component.name + '.json"'}
+                                />
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                        <Sheet>
+                            <SheetTrigger asChild>
+                                <Button variant={"outline"}>
+                                    <InfoIcon />
+                                    info
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent dir='right'>
+                                <SheetTitle className='sr-only'>
+                                    title
+                                </SheetTitle>
+                                    <InfoCard component={component} profile={profile}/>
+                            </SheetContent>
+                        </Sheet>
+                    </div>
                 </div>
                 <TabsContent value='code' className="md:grid  grid-cols-5 w-full">
                     <Tree

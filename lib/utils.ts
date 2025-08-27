@@ -1,5 +1,6 @@
 
 
+import { ComponentAuthor } from "@/config/site";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -88,3 +89,24 @@ addToTree(pathParts, root, file.path, file);
 
   return root;
 }
+
+export const defaultAuthor = {
+  authorName: "Amardeep Lakshkar",
+  website: "https://x.com/amardeepdevs",
+  avatar: "AL" // or use initials
+};
+
+
+export const getAuthorProfile = (componentTitle: string) => {
+  for (const author of ComponentAuthor) {
+    if (author.components.includes(componentTitle)) {
+      return {
+        authorName: author.authorName,
+        website: author.website,
+        avatar: author.authorName.slice(0, 2).toUpperCase(), // just initials
+      };
+    }
+  }
+
+  return defaultAuthor;
+};
