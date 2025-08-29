@@ -11,7 +11,7 @@ import { getAuthorProfile } from '@/lib/utils'
 import { Separator } from '@radix-ui/react-separator'
 import PackageManagerTabs from '../ui/tabs-02'
 
-const CategoryCard = ({ title, thumbnails }: { title: string, thumbnails: any }) => {
+const CategoryCard = ({ title, thumbnails, showDetails = true }: { title: string, thumbnails: any, showDetails?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false)
   return (
     <Card
@@ -56,7 +56,7 @@ const CategoryCard = ({ title, thumbnails }: { title: string, thumbnails: any })
         ))}
       </div>
 
-      <div className="flex items-center justify-between pt-2">
+      {showDetails && <div className="flex items-center justify-between pt-2">
         <p>{title}</p>
         <motion.div
           initial={{
@@ -68,12 +68,12 @@ const CategoryCard = ({ title, thumbnails }: { title: string, thumbnails: any })
         >
           <ArrowRight className="size-4" />
         </motion.div>
-      </div>
+      </div>}
     </Card>
   )
 }
 
-const ProjectCard = ({ url, title, thumbnails }: { title: string, thumbnails: any, url: string }) => {
+const ProjectCard = ({ url, title, thumbnails, showDetails }: { title: string, thumbnails: any, url: string, showDetails?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const profile = getAuthorProfile(title);
@@ -103,7 +103,7 @@ const ProjectCard = ({ url, title, thumbnails }: { title: string, thumbnails: an
           </motion.div>
         </div>
 
-        <div className="flex items-center pt-2">
+        {showDetails && <div className="flex items-center pt-2">
           <Avatar>
             <AvatarImage src={`https://api.microlink.io/?url=${profile.website}&embed=logo.url`} />
             <AvatarFallback>{profile.avatar}</AvatarFallback>
@@ -120,7 +120,7 @@ const ProjectCard = ({ url, title, thumbnails }: { title: string, thumbnails: an
           >
             <ArrowRight className="size-4" />
           </motion.div>
-        </div>
+        </div>}
       </Card>
     </Link>
   );

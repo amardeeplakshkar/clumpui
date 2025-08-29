@@ -32,7 +32,7 @@ interface MenuItem {
 
 const SAMPLE_PROFILE_DATA: Profile = {
     name: "Eugene An",
-    email: "eugene@clumpui.com",
+    email: "eugene@clumpui.amardeep.space",
     avatar: "https://ferf1mheo22r9ira.public.blob.vercel-storage.com/profile-mjss82WnWBRO86MHHGxvJ2TVZuyrDv.jpeg",
     subscription: "PRO",
     model: "Gemini 2.0 Flash",

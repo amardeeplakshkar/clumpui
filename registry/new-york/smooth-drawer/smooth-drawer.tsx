@@ -6,7 +6,7 @@
  * @version: 1.0.0
  * @date: 2025-06-26
  * @license: MIT
- * @website: https://clumpui.com
+ * @website: https://clumpui.amardeep.space
  * @github: https://github.com/kokonut-labs/kokonutui
  */
 
@@ -184,7 +184,7 @@ export default function SmoothDrawer({
                         <DrawerFooter className="flex flex-col gap-3 px-0">
                             <div className="w-full">
                                 <Link
-                                    href="https://clumpui.pro/#pricing"
+                                    href="https://clumpui.amardeep.space/#pricing"
                                     target="_blank"
                                     className="group w-full relative overflow-hidden inline-flex items-center justify-center h-11 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 dark:from-rose-600 dark:to-pink-600 text-white text-sm font-semibold tracking-wide shadow-lg shadow-rose-500/20 transition-all duration-500 hover:shadow-xl hover:shadow-rose-500/30 hover:from-rose-600 hover:to-pink-600 dark:hover:from-rose-500 dark:hover:to-pink-500"
                                 >
