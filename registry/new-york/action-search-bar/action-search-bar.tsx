@@ -6,7 +6,7 @@
  * @version: 1.0.0
  * @date: 2025-06-26
  * @license: MIT
- * @website: https://clumpui.com
+ * @website: https://clumpui.amardeep.space
  * @github: https://github.com/kokonut-labs/kokonutui
  */
 
