@@ -12,4 +12,5 @@ const MdxComponent = ({ content }: { content: string }) => {
     )
 }
 
+
 export default MdxComponent

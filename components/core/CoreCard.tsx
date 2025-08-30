@@ -109,7 +109,7 @@ const ProjectCard = ({ url, title, thumbnails, showDetails }: { title: string, t
             <AvatarFallback>{profile.avatar}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col justify-center ml-2">
-            <h3 className="font-semibold tracking-wide leading-3">{title}</h3>
+            <h3 className="font-semibold tracking-wide leading-3 line-clamp-1">{title}</h3>
             <p className="text-xs text-muted-foreground">{profile.authorName}</p>
           </div>
           <motion.div
