@@ -161,8 +161,8 @@ export default function TeamSelector({
                     alt={member.name}
                     className="rounded-full object-cover 
                              shadow-[0_8px_28px_-6px/0.2] dark:shadow-[0_8px_28px_-6px/0.3]
-                             bg-gradient-to-b from-white/5 to-white/20 dark:from-white/5 dark:to-black/20
-                             backdrop-blur-sm
+                             bg-linear-to-b from-white/5 to-white/20 dark:from-white/5 dark:to-black/20
+                             backdrop-blur-xs
                             hover:shadow-[0_12px_32px_-8px/0.3] dark:hover:shadow-[0_12px_32px_-8px/0.4]
                              transition-all duration-300 ease-fluid
                              border-[0.5px] border-white/10 dark:border-white/5"
@@ -199,7 +199,7 @@ export default function TeamSelector({
                         disabled={peopleCount <= 1}
                         aria-label="Decrease team size"
                         className="h-12 w-12 rounded-full 
-                                 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900
+                                 bg-linear-to-b from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900
                                  border border-zinc-200/80 dark:border-zinc-700/80
                                  shadow-[0_2px_8px_-2px/0.1] dark:shadow-[0_2px_8px_-2px/0.3]
                                  hover:shadow-[0_4px_12px_-4px/0.2] dark:hover:shadow-[0_4px_12px_-4px/0.4]
@@ -212,7 +212,7 @@ export default function TeamSelector({
                                  disabled:active:from-white disabled:active:to-zinc-50 
                                  dark:disabled:active:from-zinc-800 dark:disabled:active:to-zinc-900
                                  transition-all duration-200 ease-fluid
-                                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/30 dark:focus-visible:ring-zinc-400/30
+                                 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-zinc-500/30 dark:focus-visible:ring-zinc-400/30
                                  focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
                     >
                         <span className="text-2xl font-medium select-none">
@@ -226,7 +226,7 @@ export default function TeamSelector({
                         initial="initial"
                         animate="animate"
                         className="text-2xl font-medium bg-clip-text text-transparent 
-                                 bg-gradient-to-b from-zinc-800 to-zinc-600 dark:from-zinc-200 dark:to-zinc-400
+                                 bg-linear-to-b from-zinc-800 to-zinc-600 dark:from-zinc-200 dark:to-zinc-400
                                  select-none"
                         aria-label={`Current team size: ${peopleCount}`}
                     >
@@ -240,7 +240,7 @@ export default function TeamSelector({
                         disabled={peopleCount >= MAX_TEAM_SIZE}
                         aria-label="Increase team size"
                         className="h-12 w-12 rounded-full 
-                                 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900
+                                 bg-linear-to-b from-white to-zinc-50 dark:from-zinc-800 dark:to-zinc-900
                                  border border-zinc-200/80 dark:border-zinc-700/80
                                  shadow-[0_2px_8px_-2px/0.1] dark:shadow-[0_2px_8px_-2px/0.3]
                                  hover:shadow-[0_4px_12px_-4px/0.2] dark:hover:shadow-[0_4px_12px_-4px/0.4]
@@ -253,7 +253,7 @@ export default function TeamSelector({
                                  disabled:active:from-white disabled:active:to-zinc-50 
                                  dark:disabled:active:from-zinc-800 dark:disabled:active:to-zinc-900
                                  transition-all duration-200 ease-fluid
-                                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500/30 dark:focus-visible:ring-zinc-400/30
+                                 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-zinc-500/30 dark:focus-visible:ring-zinc-400/30
                                  focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-zinc-900"
                     >
                         <span className="text-2xl font-medium select-none">

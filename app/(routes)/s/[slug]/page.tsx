@@ -58,6 +58,7 @@ export default async function GroupPage(props: {
             thumbnails={[component.title]}
             title={component.title}
             url={component.path}
+            showDetails
           />
         ))}
       </div>

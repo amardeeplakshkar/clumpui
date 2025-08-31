@@ -202,8 +202,8 @@ const popularExperiences: ExperienceItem[] = [
 
 const ExperienceCard = ({ experience }: { experience: ExperienceItem }) => {
     return (
-        <Card className="group relative w-full h-[320px] rounded-xl border-0 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-xl">
+        <Card className="group relative w-full h-[320px] rounded-xl border-0 overflow-hidden shadow-xs hover:shadow-md transition-shadow duration-300 flex flex-col">
+            <div className="relative aspect-4/3 w-full overflow-hidden rounded-t-xl">
                 <Image
                     src={experience.image}
                     alt={experience.title}
@@ -213,7 +213,7 @@ const ExperienceCard = ({ experience }: { experience: ExperienceItem }) => {
                 <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute top-2 right-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white/90 z-10 text-neutral-700 hover:text-black"
+                    className="absolute top-2 right-2 rounded-full bg-white/80 backdrop-blur-xs hover:bg-white/90 z-10 text-neutral-700 hover:text-black"
                 >
                     <Heart className="w-4 h-4 stroke-[2px]" />
                     <span className="sr-only">Add to favorites</span>
@@ -336,7 +336,7 @@ const ExperienceSection = ({
                         >
                             <Link
                                 href="#"
-                                className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-xl"
+                                className="block focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary rounded-xl"
                             >
                                 <ExperienceCard experience={item} />
                             </Link>

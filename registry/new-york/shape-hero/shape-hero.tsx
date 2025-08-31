@@ -26,7 +26,7 @@ function ElegantShape({
     width = 400,
     height = 100,
     rotate = 0,
-    gradient = "from-white/[0.08]",
+    gradient = "from-white/8",
     borderRadius = 16,
 }: {
     className?: string;
@@ -79,7 +79,7 @@ function ElegantShape({
                         "bg-linear-to-r to-transparent",
                         gradient,
                         "backdrop-blur-[1px]",
-                        "ring-1 ring-white/[0.03] dark:ring-white/[0.02]",
+                        "ring-1 ring-white/3 dark:ring-white/2",
                         "shadow-[0_2px_16px_-2px_rgba(255,255,255,0.04)]",
                         "after:absolute after:inset-0",
                         "after:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)]",
@@ -113,7 +113,7 @@ export default function ShapeHero({
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-white dark:bg-[#030303]">
-            <div className="absolute inset-0 bg-linear-to-br from-indigo-500/[0.02] via-transparent to-rose-500/[0.02] dark:from-indigo-500/[0.05] dark:via-transparent dark:to-rose-500/[0.05] blur-3xl" />
+            <div className="absolute inset-0 bg-linear-to-br from-indigo-500/2 via-transparent to-rose-500/2 dark:from-indigo-500/5 dark:via-transparent dark:to-rose-500/5 blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
                 {/* Tall rectangle - top left */}
@@ -123,7 +123,7 @@ export default function ShapeHero({
                     height={500}
                     rotate={-8}
                     borderRadius={24}
-                    gradient="from-indigo-500/[0.25] dark:from-indigo-500/[0.35]"
+                    gradient="from-indigo-500/25 dark:from-indigo-500/35"
                     className="left-[-15%] top-[-10%]"
                 />
 
@@ -134,7 +134,7 @@ export default function ShapeHero({
                     height={200}
                     rotate={15}
                     borderRadius={20}
-                    gradient="from-rose-500/[0.25] dark:from-rose-500/[0.35]"
+                    gradient="from-rose-500/25 dark:from-rose-500/35"
                     className="right-[-20%] bottom-[-5%]"
                 />
 
@@ -145,7 +145,7 @@ export default function ShapeHero({
                     height={300}
                     rotate={24}
                     borderRadius={32}
-                    gradient="from-violet-500/[0.25] dark:from-violet-500/[0.35]"
+                    gradient="from-violet-500/25 dark:from-violet-500/35"
                     className="left-[-5%] top-[40%]"
                 />
 
@@ -156,7 +156,7 @@ export default function ShapeHero({
                     height={100}
                     rotate={-20}
                     borderRadius={12}
-                    gradient="from-amber-500/[0.25] dark:from-amber-500/[0.35]"
+                    gradient="from-amber-500/25 dark:from-amber-500/35"
                     className="right-[10%] top-[5%]"
                 />
 
@@ -168,7 +168,7 @@ export default function ShapeHero({
                     height={150}
                     rotate={35}
                     borderRadius={16}
-                    gradient="from-emerald-500/[0.25] dark:from-emerald-500/[0.35]"
+                    gradient="from-emerald-500/25 dark:from-emerald-500/35"
                     className="right-[-10%] top-[45%]"
                 />
 
@@ -179,7 +179,7 @@ export default function ShapeHero({
                     height={200}
                     rotate={-25}
                     borderRadius={28}
-                    gradient="from-blue-500/[0.25] dark:from-blue-500/[0.35]"
+                    gradient="from-blue-500/25 dark:from-blue-500/35"
                     className="left-[20%] bottom-[10%]"
                 />
 
@@ -190,7 +190,7 @@ export default function ShapeHero({
                     height={80}
                     rotate={45}
                     borderRadius={10}
-                    gradient="from-purple-500/[0.25] dark:from-purple-500/[0.35]"
+                    gradient="from-purple-500/25 dark:from-purple-500/35"
                     className="left-[40%] top-[15%]"
                 />
 
@@ -201,7 +201,7 @@ export default function ShapeHero({
                     height={120}
                     rotate={-12}
                     borderRadius={18}
-                    gradient="from-teal-500/[0.25] dark:from-teal-500/[0.35]"
+                    gradient="from-teal-500/25 dark:from-teal-500/35"
                     className="left-[25%] top-[60%]"
                 />
             </div>

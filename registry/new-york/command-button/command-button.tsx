@@ -25,7 +25,7 @@ export default function CommandButton({
             className={cn(
                 "relative p-2",
                 "rounded-lg overflow-hidden",
-                "bg-gradient-to-b from-zinc-50 to-zinc-100",
+                "bg-linear-to-b from-zinc-50 to-zinc-100",
                 "dark:from-zinc-800 dark:to-zinc-900",
                 "border border-zinc-200 dark:border-zinc-800",
                 "hover:border-zinc-300 dark:hover:border-zinc-700",
@@ -52,9 +52,9 @@ export default function CommandButton({
             <span
                 className={cn(
                     "absolute inset-0",
-                    "bg-gradient-to-r from-indigo-500/0 via-indigo-500/10 to-indigo-500/0",
-                    "translate-x-[-100%]",
-                    "group-hover:translate-x-[100%]",
+                    "bg-linear-to-r from-indigo-500/0 via-indigo-500/10 to-indigo-500/0",
+                    "-translate-x-full",
+                    "group-hover:translate-x-full",
                     "transition-transform duration-500",
                     "ease-out"
                 )}

@@ -129,7 +129,7 @@ export default function TypewriterTitle({
                 ref={scope}
             >
                 <motion.div
-                    className="text-4xl md:text-6xl font-mono text-black dark:text-white tracking-tight flex items-center gap-2"
+                    className="text-2xl md:text-4xl font-mono text-black dark:text-white tracking-tight flex items-center gap-2"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                 >

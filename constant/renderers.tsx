@@ -13,6 +13,7 @@ export const components = {
         const { theme } = useTheme();
         const match = /language-(\w+)/.exec(className || "") || "";
         const codeContent = String(children).replace(/\n$/, "");
+
         let contentToShow;
         switch (match[1]) {
             case "bash":
@@ -21,6 +22,31 @@ export const components = {
                         registryUrl={codeContent}
                     />
                 </div>
+                break;
+            case "tsx":
+                contentToShow =  <CodeBlock>
+                            <CodeBlockGroup className="border-border border-b px-4 py-2">
+                                <div className="flex items-center gap-2">
+                                    <div className="bg-primary/10 text-primary rounded px-2 py-1 text-xs font-medium">
+                                        {match![1]}
+                                    </div>
+                                </div>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="size-8"
+                                    onClick={() => { }}
+                                >
+                                    <Copy className="size-4" />
+                                </Button>
+                            </CodeBlockGroup>
+                            <CodeBlockCode
+                                className="min-h-0  md:min-h-0"
+                                code={codeContent}
+                                language={match![1] || "text"}
+                                theme={theme === "dark" ? "dracula" : "github-light"}
+                            />
+                        </CodeBlock>
                 break;
             default:
                 contentToShow = (
@@ -42,7 +68,7 @@ export const components = {
                                 </Button>
                             </CodeBlockGroup>
                             <CodeBlockCode
-                                className="max-h-0 min-h-0 md:max-h-0 md:min-h-0"
+                                className="min-h-0 md:min-h-0"
                                 code={codeContent}
                                 language={match![1] || "text"}
                                 theme={theme === "dark" ? "dracula" : "github-light"}
@@ -54,7 +80,7 @@ export const components = {
                 break;
         }
         return !inline && match ? (
-            <div className="w-full max-w-[80dvw] pt-4 pb-2">{contentToShow}</div>
+            <div className="w-full pt-4 pb-2">{contentToShow}</div>
         ) : (
             <Badge className="whitespace-pre-wrap" {...props}>
                 {children}

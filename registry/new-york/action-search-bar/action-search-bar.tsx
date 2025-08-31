@@ -273,7 +273,7 @@ function ActionSearchBar({
                     <AnimatePresence>
                         {isFocused && result && !selectedAction && (
                             <motion.div
-                                className="w-full border rounded-md shadow-xs overflow-hidden dark:border-gray-800 bg-white dark:bg-black mt-1"
+                                className="w-full border rounded-md shadow-2xs overflow-hidden dark:border-gray-800 bg-white dark:bg-black mt-1"
                                 variants={ANIMATION_VARIANTS.container}
                                 role="listbox"
                                 aria-label="Search results"

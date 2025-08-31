@@ -523,12 +523,12 @@ export default function FileUpload({
             aria-label="File upload"
         >
             <div className="group relative w-full rounded-xl bg-white dark:bg-black ring-1 ring-gray-200 dark:ring-white/10 p-0.5">
-                <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+                <div className="absolute inset-x-0 -top-px h-px w-full bg-linear-to-r from-transparent via-blue-500/20 to-transparent" />
 
-                <div className="relative w-full rounded-[10px] bg-gray-50/50 dark:bg-white/[0.02] p-1.5">
+                <div className="relative w-full rounded-[10px] bg-gray-50/50 dark:bg-white/2 p-1.5">
                     <div
                         className={cn(
-                            "relative mx-auto w-full overflow-hidden rounded-lg border border-gray-100 dark:border-white/[0.08] bg-white dark:bg-black/50",
+                            "relative mx-auto w-full overflow-hidden rounded-lg border border-gray-100 dark:border-white/8 bg-white dark:bg-black/50",
                             error ? "border-red-500/50" : ""
                         )}
                     >
@@ -540,14 +540,14 @@ export default function FileUpload({
                                     : "opacity-0"
                             )}
                         >
-                            <div className="absolute inset-x-0 top-0 h-[20%] bg-gradient-to-b from-blue-500/10 to-transparent" />
-                            <div className="absolute inset-x-0 bottom-0 h-[20%] bg-gradient-to-t from-blue-500/10 to-transparent" />
-                            <div className="absolute inset-y-0 left-0 w-[20%] bg-gradient-to-r from-blue-500/10 to-transparent" />
-                            <div className="absolute inset-y-0 right-0 w-[20%] bg-gradient-to-l from-blue-500/10 to-transparent" />
+                            <div className="absolute inset-x-0 top-0 h-[20%] bg-linear-to-b from-blue-500/10 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 h-[20%] bg-linear-to-t from-blue-500/10 to-transparent" />
+                            <div className="absolute inset-y-0 left-0 w-[20%] bg-linear-to-r from-blue-500/10 to-transparent" />
+                            <div className="absolute inset-y-0 right-0 w-[20%] bg-linear-to-l from-blue-500/10 to-transparent" />
                             <div className="absolute inset-[20%] bg-blue-500/5 rounded-lg transition-all duration-300 animate-pulse" />
                         </div>
 
-                        <div className="absolute -right-4 -top-4 h-8 w-8 bg-gradient-to-br from-blue-500/20 to-transparent blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute -right-4 -top-4 h-8 w-8 bg-linear-to-br from-blue-500/20 to-transparent blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                         <div className="relative h-[240px]">
                             <AnimatePresence mode="wait">

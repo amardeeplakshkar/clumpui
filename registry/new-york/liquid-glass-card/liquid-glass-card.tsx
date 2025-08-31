@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 import { ArrowRight, ArrowLeft, Play, Pause } from "lucide-react";
 
 const liquidbuttonVariants = cva(
-    "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+    "inline-flex items-center transition-colors justify-center cursor-pointer gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-hidden focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
     {
         variants: {
             variant: {
@@ -326,7 +326,7 @@ const LiquidGlassCard = React.forwardRef<HTMLDivElement, LiquidGlassCardProps>(
                     <div className="relative z-10">{children}</div>
 
                     {/* Shine effect on hover */}
-                    <div className="absolute inset-0 z-20 rounded-lg bg-gradient-to-r from-transparent dark:via-white/5 via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none" />
+                    <div className="absolute inset-0 z-20 rounded-lg bg-linear-to-r from-transparent dark:via-white/5 via-black/5 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100 pointer-events-none" />
 
                     {glassEffect && <GlassFilter />}
                 </Comp>
@@ -449,17 +449,17 @@ export function NotificationCenter() {
                             role="presentation"
                         >
                             {/* Background gradient */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-zinc-300/20 via-zinc-300/30 to-zinc-300/20 dark:from-white/5 dark:via-white/10 dark:to-white/5" />
+                            <div className="absolute inset-0 bg-linear-to-r from-zinc-300/20 via-zinc-300/30 to-zinc-300/20 dark:from-white/5 dark:via-white/10 dark:to-white/5" />
 
                             {/* Progress indicator */}
                             <div
-                                className="absolute inset-y-0 left-0 flex bg-gradient-to-r from-black/50 via-black/50 to-black/50 dark:from-white/80 dark:via-white/80 dark:to-white/80 transition-all duration-200 ease-out"
+                                className="absolute inset-y-0 left-0 flex bg-linear-to-r from-black/50 via-black/50 to-black/50 dark:from-white/80 dark:via-white/80 dark:to-white/80 transition-all duration-200 ease-out"
                                 style={{
                                     width: `${progress}%`,
                                 }}
                             >
                                 {/* Shine effect */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-white/5" />
+                                <div className="absolute inset-0 bg-linear-to-t from-black/5 to-white/5" />
                             </div>
 
                             {/* Interactive seek button (invisible but functional) */}

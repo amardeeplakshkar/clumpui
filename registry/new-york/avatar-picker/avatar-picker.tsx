@@ -324,7 +324,7 @@ const DetailRing = () => (
         <svg
             className="absolute inset-0 w-full h-full animate-[spin_30s_linear_infinite]"
             viewBox="0 0 100 100"
-            aria-label="Decorative outer ring animation"
+            aria-label="Decorative outer ring-3 animation"
         >
             <title>Decorative outer spinning ring</title>
             <defs>
@@ -365,7 +365,7 @@ const DetailRing = () => (
         <svg
             className="absolute inset-0 w-full h-full animate-[spin_20s_linear_infinite_reverse]"
             viewBox="0 0 100 100"
-            aria-label="Decorative inner ring animation"
+            aria-label="Decorative inner ring-3 animation"
         >
             <title>Decorative inner spinning ring</title>
             <circle
@@ -412,17 +412,17 @@ export default function ProfileSetup({
     return (
         <Card
             className={cn(
-                "relative w-full max-w-[400px] mx-auto overflow-hidden bg-gradient-to-b from-background/80 to-background/40 backdrop-blur-sm border-primary/10",
+                "relative w-full max-w-[400px] mx-auto overflow-hidden bg-linear-to-b from-background/80 to-background/40 backdrop-blur-xs border-primary/10",
                 className
             )}
         >
-            <div className="absolute inset-x-0 -top-px h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+            <div className="absolute inset-x-0 -top-px h-px w-full bg-linear-to-r from-transparent via-primary/30 to-transparent" />
 
             <CardContent className="p-8">
                 <div className="space-y-8">
                     {/* Header */}
                     <div className="text-center space-y-2">
-                        <h2 className="text-2xl font-bold bg-gradient-to-br from-primary/90 to-primary/60 bg-clip-text text-transparent">
+                        <h2 className="text-2xl font-bold bg-linear-to-br from-primary/90 to-primary/60 bg-clip-text text-transparent">
                             Create Your Profile
                         </h2>
                         <p className="text-sm text-muted-foreground">
@@ -441,9 +441,9 @@ export default function ProfileSetup({
                         >
                             <DetailRing />
 
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-b from-primary/10 to-transparent blur-md opacity-50" />
+                            <div className="absolute inset-0 rounded-full bg-linear-to-b from-primary/10 to-transparent blur-md opacity-50" />
 
-                            <div className="relative w-full h-full rounded-full overflow-hidden border border-primary/20 bg-gradient-to-b from-background/80 to-background shadow-lg shadow-primary/5">
+                            <div className="relative w-full h-full rounded-full overflow-hidden border border-primary/20 bg-linear-to-b from-background/80 to-background shadow-lg shadow-primary/5">
                                 <motion.div
                                     className="absolute inset-0 flex items-center justify-center"
                                     animate={{ rotate: rotationCount }}
@@ -456,10 +456,10 @@ export default function ProfileSetup({
                                         {selectedAvatar.svg}
                                     </div>
                                 </motion.div>
-                                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/20" />
+                                <div className="absolute inset-0 bg-linear-to-b from-transparent to-background/20" />
                             </div>
 
-                            <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-primary/10 backdrop-blur-sm border border-primary/20 flex items-center justify-center">
+                            <div className="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-primary/10 backdrop-blur-xs border border-primary/20 flex items-center justify-center">
                                 <Crown className="w-4 h-4 text-primary" />
                             </div>
                         </motion.div>
@@ -506,7 +506,7 @@ export default function ProfileSetup({
                                     </AnimatePresence>
 
                                     <div className="relative w-full h-full rounded-full overflow-hidden">
-                                        <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300" />
+                                        <div className="absolute inset-0 bg-linear-to-b from-background/50 to-background opacity-0 group-hover/avatar:opacity-100 transition-opacity duration-300" />
                                         <div className="absolute inset-0 flex items-center justify-center">
                                             <div className="transform scale-[2.2]">
                                                 {avatar.svg}
@@ -515,7 +515,7 @@ export default function ProfileSetup({
                                     </div>
 
                                     {selectedAvatar.id === avatar.id && (
-                                        <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-primary/10 backdrop-blur-sm flex items-center justify-center">
+                                        <div className="absolute -bottom-0.5 -right-0.5 w-5 h-5 rounded-full bg-primary/10 backdrop-blur-xs flex items-center justify-center">
                                             <Check className="w-3 h-3 text-primary" />
                                         </div>
                                     )}
@@ -577,7 +577,7 @@ export default function ProfileSetup({
                                 Start Adventure
                             </span>
                             <ChevronRight className="relative z-10 w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                            <div className="absolute inset-0 rounded-md bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 rounded-md bg-linear-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </Button>
                     </div>
                 </div>

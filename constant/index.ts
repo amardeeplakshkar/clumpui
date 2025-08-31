@@ -35,6 +35,7 @@ This will automatically include the required styles, icons, and supporting files
 
 Once installed, you can use the component right away:
 
+
 \`\`\`tsx
 import ParticleButton from "@/components/clumpui/particle-button";
 
@@ -42,6 +43,7 @@ export default function Page() {
   return <ParticleButton />;
 }
 \`\`\`
+
 
 ---
 
