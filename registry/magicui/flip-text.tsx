@@ -52,7 +52,7 @@ export function FlipText({
             exit="hidden"
             variants={variants || defaultVariants}
             transition={{ duration, delay: i * delayMultiple }}
-            className={cn("origin-center drop-shadow-sm", className)}
+            className={cn("origin-center drop-shadow-xs", className)}
             {...props}
           >
             {char}

@@ -118,7 +118,7 @@ export default function CurrencyTransfer() {
 
     return (
         <TooltipProvider>
-            <Card className="w-full max-w-sm mx-auto p-6 h-[420px] flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 backdrop-blur-sm shadow-[0_0_0_1px_rgba(0,0,0,0.03)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.03)] hover:border-emerald-500/20 dark:hover:border-emerald-500/20 transition-all duration-500">
+            <Card className="w-full max-w-sm mx-auto p-6 h-[420px] flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200/60 dark:border-zinc-800/60 backdrop-blur-xs shadow-[0_0_0_1px_rgba(0,0,0,0.03)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.03)] hover:border-emerald-500/20 dark:hover:border-emerald-500/20 transition-all duration-500">
                 <CardContent className="flex-1 flex flex-col justify-center space-y-4">
                     <div className="h-[80px] flex items-center justify-center">
                         <motion.div

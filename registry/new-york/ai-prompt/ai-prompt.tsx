@@ -234,9 +234,9 @@ export default function AI_Prompt() {
                                         </DropdownMenuTrigger>
                                         <DropdownMenuContent
                                             className={cn(
-                                                "min-w-[10rem]",
+                                                "min-w-40",
                                                 "border-black/10 dark:border-white/10",
-                                                "bg-gradient-to-b from-white via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
+                                                "bg-linear-to-b from-white via-white to-neutral-100 dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-800"
                                             )}
                                         >
                                             {AI_MODELS.map((model) => (

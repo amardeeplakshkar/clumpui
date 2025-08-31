@@ -769,7 +769,7 @@
       "name": "progressive-blur-demo",
       "type": "registry:component",
       "title": "Progressive Blur Demo",
-      "description": "Example showing progressive blur effect for scrollable content.",
+      "description": "Example showing progressive blur-sm effect for scrollable content.",
       "registryDependencies": [
         "https://magicui.design/r/progressive-blur"
       ],
@@ -2363,7 +2363,7 @@
       "name": "blur-fade-demo",
       "type": "registry:component",
       "title": "Blur Fade Demo",
-      "description": "Example showing blur fade in and out animations.",
+      "description": "Example showing blur-sm fade in and out animations.",
       "registryDependencies": [
         "https://magicui.design/r/blur-fade"
       ],
@@ -2379,7 +2379,7 @@
       "name": "blur-fade-text-demo",
       "type": "registry:component",
       "title": "Blur Fade Text Demo",
-      "description": "Example showing blur fade animations with text.",
+      "description": "Example showing blur-sm fade animations with text.",
       "registryDependencies": [
         "https://magicui.design/r/blur-fade"
       ],

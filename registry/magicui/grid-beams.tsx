@@ -73,7 +73,7 @@ const LightRay = React.memo<LightRayProps>(
   }) => {
     return (
       <motion.div
-        className="absolute pointer-events-none -top-[5%] left-[var(--ray-left)] w-[var(--ray-width)] h-[var(--ray-height)] origin-top mix-blend-screen bg-[linear-gradient(to_bottom,rgba(200,220,255,var(--ray-opacity)),rgba(200,220,255,0))] blur-[var(--ray-blur)] translate-x-[-50%] rotate-[var(--ray-rotation)]"
+        className="absolute pointer-events-none -top-[5%] left-(--ray-left) w-(--ray-width) h-(--ray-height) origin-top mix-blend-screen bg-[linear-gradient(to_bottom,rgba(200,220,255,var(--ray-opacity)),rgba(200,220,255,0))] blur-(--ray-blur) translate-x-[-50%] rotate-(--ray-rotation)"
         style={
           {
             "--ray-left": left,
@@ -139,7 +139,7 @@ export const GridBeams: React.FC<GridBeamsProps> = ({
   return (
     <div
       className={cn(
-        "relative overflow-hidden bg-[var(--bg-color)] bg-[radial-gradient(ellipse_at_50%_-20%,#1a2c5a,transparent_70%)]",
+        "relative overflow-hidden bg-(--bg-color) bg-[radial-gradient(ellipse_at_50%_-20%,#1a2c5a,transparent_70%)]",
         className,
       )}
       style={
@@ -150,7 +150,7 @@ export const GridBeams: React.FC<GridBeamsProps> = ({
       {...props}
     >
       <div
-        className="absolute inset-0 pointer-events-none bg-[linear-gradient(var(--grid-color)_1px,transparent_1px),linear-gradient(90deg,var(--grid-color)_1px,transparent_1px)] bg-size-[var(--grid-size)_var(--grid-size)] [mask-image:var(--grid-mask)] [webkit-mask-image:var(--grid-mask)]"
+        className="absolute inset-0 pointer-events-none bg-[linear-gradient(var(--grid-color)_1px,transparent_1px),linear-gradient(90deg,var(--grid-color)_1px,transparent_1px)] bg-size-[var(--grid-size)_var(--grid-size)] mask-(--grid-mask) [webkit-mask-image:var(--grid-mask)]"
         style={
           {
             "--grid-color": gridColor,

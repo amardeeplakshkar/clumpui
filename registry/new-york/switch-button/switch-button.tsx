@@ -38,7 +38,7 @@ export default function SwitchButton({
     const variants = {
         minimal: [
             "rounded-lg",
-            "bg-gradient-to-b from-zinc-50/95 to-zinc-100/95 dark:from-zinc-800/95 dark:to-zinc-900/95",
+            "bg-linear-to-b from-zinc-50/95 to-zinc-100/95 dark:from-zinc-800/95 dark:to-zinc-900/95",
             "hover:from-zinc-100/95 hover:to-zinc-200/95 dark:hover:from-zinc-700/95 dark:hover:to-zinc-800/95",
             "border border-zinc-200 dark:border-zinc-700/80",
             "hover:border-zinc-300 dark:hover:border-zinc-600",
@@ -46,10 +46,10 @@ export default function SwitchButton({
             "hover:shadow-[0_2px_4px_-2px_rgb(0_0_0/0.15),0_2px_6px_-3px_rgb(0_0_0/0.15)] dark:hover:shadow-[0_2px_4px_-2px_rgb(0_0_0/0.4),0_2px_6px_-3px_rgb(0_0_0/0.4)]",
             "active:shadow-[0_0px_1px_0_rgb(0_0_0/0.1)] dark:active:shadow-[0_0px_1px_0_rgb(0_0_0/0.2)]",
             "transition-all duration-200 ease-out",
-            "backdrop-blur-sm",
+            "backdrop-blur-xs",
             "relative",
-            "after:absolute after:inset-0 after:rounded-lg after:bg-gradient-to-t after:from-white/10 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity",
-            "before:absolute before:inset-[1px] before:rounded-[7px] before:bg-gradient-to-b before:from-white/20 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity dark:before:from-white/5",
+            "after:absolute after:inset-0 after:rounded-lg after:bg-linear-to-t after:from-white/10 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity",
+            "before:absolute before:inset-px before:rounded-[7px] before:bg-linear-to-b before:from-white/20 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity dark:before:from-white/5",
         ],
     };
 
@@ -85,7 +85,7 @@ export default function SwitchButton({
                         size === "sm" && "w-3.5 h-3.5",
                         size === "default" && "w-4 h-4",
                         size === "lg" && "w-5 h-5",
-                        "group-hover:rotate-[360deg] group-hover:scale-110",
+                        "group-hover:rotate-360 group-hover:scale-110",
                         theme === "dark" ? "rotate-180" : "rotate-0",
                         "transform-gpu",
                         "drop-shadow-[0_0_12px_rgba(252,211,77,0.3)] dark:drop-shadow-[0_0_12px_rgba(252,211,77,0.2)]",
@@ -145,13 +145,13 @@ export default function SwitchButton({
             <span
                 className={cn(
                     "absolute inset-0",
-                    "bg-gradient-to-r from-zinc-500/0 via-zinc-500/[0.12] to-zinc-500/0 dark:from-white/0 dark:via-white/[0.05]",
-                    "translate-x-[-100%]",
-                    "group-hover:translate-x-[100%]",
+                    "bg-linear-to-r from-zinc-500/0 via-zinc-500/12 to-zinc-500/0 dark:from-white/0 dark:via-white/5",
+                    "-translate-x-full",
+                    "group-hover:translate-x-full",
                     "transition-transform duration-500",
                     "ease-in-out",
                     "pointer-events-none",
-                    "z-[1]"
+                    "z-1"
                 )}
             />
             <span
@@ -160,7 +160,7 @@ export default function SwitchButton({
                     "bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.12),transparent_70%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.07),transparent_70%)]",
                     "transition-opacity duration-500",
                     "pointer-events-none",
-                    "z-[2]"
+                    "z-2"
                 )}
             />
         </Button>

@@ -175,9 +175,9 @@ const ComponentPreview = ({ component }: { component: any }) => {
                         )}
                     </Card>
                 </TabsContent>
-                <TabsContent value='preview' className='md:m-0'>
+                <TabsContent value='preview' className='md:m-0 md:mt-2'>
                     <Card className="bg-secondary-foreground/5">
-                        <div className="min-h-[83.5dvh] md:min-h-[81.5dvh] max-h-[83.5dvh] md:max-h-[81.5dvh] overflow-y-auto relative flex w-full items-center justify-center p-10">
+                        <div className=" relative flex w-full items-center justify-center p-10 min-h-[83.5dvh] md:min-h-[81.5dvh] max-h-[83.5dvh] md:max-h-[81.5dvh] overflow-y-auto">
                             <Suspense fallback={
                                 <>
                                     Loading...

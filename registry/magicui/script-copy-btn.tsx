@@ -89,7 +89,7 @@ export function ScriptCopyBtn({
                       {pm}
                       {packageManager === pm && (
                         <motion.div
-                          className="absolute inset-x-0 bottom-[1px] mx-auto h-0.5 w-[90%] bg-primary"
+                          className="absolute inset-x-0 bottom-px mx-auto h-0.5 w-[90%] bg-primary"
                           layoutId="activeTab"
                           initial={false}
                           transition={{

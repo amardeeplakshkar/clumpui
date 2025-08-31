@@ -77,7 +77,7 @@ export default function PackageManagerTabs({
             variant="secondary"
             className="ml-auto mr-1 h-7 w-7"
           >
-            <Copy className="!h-3.5 !w-3.5" />
+            <Copy className="h-3.5! w-3.5!" />
           </Button>
         </TabsList>
 

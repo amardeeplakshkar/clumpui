@@ -265,7 +265,7 @@ const AnimatedTitle = memo(function AnimatedTitle({
     return (
         <motion.h1 
             className="text-3xl sm:text-5xl md:text-5xl font-bold mb-8 tracking-tighter
-                text-transparent bg-clip-text bg-gradient-to-r 
+                text-transparent bg-clip-text bg-linear-to-r 
                 from-neutral-800/90 to-neutral-600/90
                 dark:from-white/90 dark:to-white/70"
             initial={{ opacity: 0, y: 20 }}

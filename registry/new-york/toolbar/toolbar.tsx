@@ -204,7 +204,7 @@ export function Toolbar({
                         onClick={() => setIsToggled(!isToggled)}
                         className={cn(
                             "flex items-center gap-2 px-4 py-2",
-                            "rounded-xl border shadow-sm transition-all duration-200",
+                            "rounded-xl border shadow-xs transition-all duration-200",
                             "hover:shadow-md active:border-primary/50",
                             isToggled
                                 ? [

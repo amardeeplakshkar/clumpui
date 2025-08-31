@@ -3,7 +3,7 @@
   "name": "blur-fade-text-demo",
   "type": "registry:component",
   "title": "Blur Fade Text Demo",
-  "description": "Example showing blur fade animations with text.",
+  "description": "Example showing blur-sm fade animations with text.",
   "registryDependencies": [
     "https://magicui.design/r/blur-fade"
   ],

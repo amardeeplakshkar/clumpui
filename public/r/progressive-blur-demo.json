@@ -3,7 +3,7 @@
   "name": "progressive-blur-demo",
   "type": "registry:component",
   "title": "Progressive Blur Demo",
-  "description": "Example showing progressive blur effect for scrollable content.",
+  "description": "Example showing progressive blur-sm effect for scrollable content.",
   "registryDependencies": [
     "https://magicui.design/r/progressive-blur"
   ],

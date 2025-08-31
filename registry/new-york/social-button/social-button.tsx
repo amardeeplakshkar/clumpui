@@ -95,7 +95,7 @@ export default function SocialButton({
                             i === 3 && "rounded-r-md",
                             "border-r border-white/10 dark:border-black/10 last:border-r-0",
                             "hover:bg-gray-900 dark:hover:bg-gray-100",
-                            "outline-none",
+                            "outline-hidden",
                             "relative overflow-hidden",
                             "transition-colors duration-200"
                         )}
