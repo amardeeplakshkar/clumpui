@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import Link from 'next/link'
-import { getAuthorProfile } from '@/lib/utils'
+import { getAuthorProfile, authorNameToSlug } from '@/lib/utils'
 import { Separator } from '@radix-ui/react-separator'
 import PackageManagerTabs from '../ui/tabs-02'
 
@@ -73,7 +73,7 @@ const CategoryCard = ({ title, thumbnails, showDetails = true }: { title: string
   )
 }
 
-const ProjectCard = ({ url, title, thumbnails, showDetails }: { title: string, thumbnails: any, url: string, showDetails?: boolean }) => {
+const ProjectCard = ({ url, title, thumbnails, showDetails=true }: { title: string, thumbnails: any, url: string, showDetails?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const profile = getAuthorProfile(title);
@@ -104,13 +104,15 @@ const ProjectCard = ({ url, title, thumbnails, showDetails }: { title: string, t
         </div>
 
         {showDetails && <div className="flex items-center pt-2">
+          <Link href={`/profile/${profile.authorName.toLowerCase().replace(/\s+/g, '-')}`}>
           <Avatar>
             <AvatarImage src={`https://api.microlink.io/?url=${profile.website}&embed=logo.url`} />
             <AvatarFallback>{profile.avatar}</AvatarFallback>
           </Avatar>
+          </Link>
           <div className="flex flex-col justify-center ml-2">
-            <h3 className="font-semibold tracking-wide leading-3 line-clamp-1">{title}</h3>
-            <p className="text-xs text-muted-foreground">{profile.authorName}</p>
+            <h3 className="font-semibold tracking-wide leading-4 line-clamp-1">{title.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</h3>
+            <Link href={`/profile/${profile.authorName.toLowerCase().replace(/\s+/g, '-')}`} className="text-xs text-muted-foreground">{profile.authorName}</Link>
           </div>
           <motion.div
             className="ml-auto"
@@ -142,13 +144,18 @@ const InfoCard = ({ component, profile }: { component: any, profile: any }) => {
         <CardContent className="space-y-4">
           <div>
             <p className="text-xs text-muted-foreground mb-1">Created by</p>
-            <Link target='_blank' rel="noopener noreferrer" href={profile.website} className="flex items-center gap-2">
-              <Avatar className="h-6 w-6">
-                <AvatarImage src={`https://api.microlink.io/?url=${profile.website}&embed=logo.url`} alt="Magic UI" />
-                <AvatarFallback>{profile.avatar}</AvatarFallback>
-              </Avatar>
-              <span className="text-sm font-medium">{profile.authorName}</span>
-            </Link>
+            <div className="flex flex-col gap-2">
+              <Link href={`/profile/${authorNameToSlug(profile.authorName)}`} className="flex items-center gap-2 hover:text-foreground transition-colors">
+                <Avatar className="h-6 w-6">
+                  <AvatarImage src={`https://api.microlink.io/?url=${profile.website}&embed=logo.url`} alt={profile.authorName} />
+                  <AvatarFallback>{profile.avatar}</AvatarFallback>
+                </Avatar>
+                <span className="text-sm font-medium">{profile.authorName}</span>
+              </Link>
+              <Link target='_blank' rel="noopener noreferrer" href={profile.website} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                Visit {profile.authorName} →
+              </Link>
+            </div>
           </div>
 
           <div>

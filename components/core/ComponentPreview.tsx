@@ -15,6 +15,7 @@ import PackageManagerTabs from '../ui/tabs-02';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { InfoCard } from './CoreCard';
+import IssueButton, { FeatureRequestButton } from '../ui/issue-button';
 
 const componentMap: Record<string, () => Promise<{ default: React.ComponentType<any> }>> = {
     "complex-component": () => import(`@/registry/new-york/complex-component/complex-component`),
@@ -75,9 +76,6 @@ const ComponentPreview = ({ component }: { component: any }) => {
 
     return (
         <div>
-            <nav>
-
-            </nav>
             <Tabs className='' defaultValue='preview'>
                 <div className='flex items-center justify-between'>
                     <TabsList>
@@ -93,7 +91,7 @@ const ComponentPreview = ({ component }: { component: any }) => {
                     </h2>
                     <div className='flex items-center gap-2'>
                         <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-                            <DropdownMenuTrigger asChild>
+                            <DropdownMenuTrigger className='md:flex hidden' asChild>
                                 <Button className=''>
                                     <Download />
                                     Install
@@ -110,7 +108,7 @@ const ComponentPreview = ({ component }: { component: any }) => {
                             <SheetTrigger asChild>
                                 <Button variant={"outline"}>
                                     <InfoIcon />
-                                    info
+                                    Info
                                 </Button>
                             </SheetTrigger>
                             <SheetContent dir='right'>
@@ -120,11 +118,14 @@ const ComponentPreview = ({ component }: { component: any }) => {
                                     <InfoCard component={component} profile={profile}/>
                             </SheetContent>
                         </Sheet>
+                        <IssueButton
+                        componentName={component.name}
+                        />
                     </div>
                 </div>
                 <TabsContent value='code' className="md:grid  grid-cols-5 w-full">
                     <Tree
-                        className="col-span-1 bg-red-500 rounded-md bg-background"
+                        className="col-span-1  rounded-md bg-background"
                         initialSelectedId={selectedFileId ?? '3'}
                         initialExpandedItems={[
                             "1",
