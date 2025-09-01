@@ -1,6 +1,6 @@
 
 
-import { ComponentAuthor } from "@/config/site";
+import { ComponentAuthor, siteConfig } from "@/config/site";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
@@ -109,4 +109,68 @@ export const getAuthorProfile = (componentTitle: string) => {
   }
 
   return defaultAuthor;
+};
+
+
+export const getAuthorBySlug = (slug: string) => {
+  // Convert slug back to authorName (e.g., "magic-ui" -> "Magic UI")
+  const authorName = slug
+    .split('-')
+    .map(word => {
+      // Special case for "ui" to keep it as "UI"
+      if (word.toLowerCase() === 'ui') {
+        return 'UI';
+      }
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    })
+    .join(' ');
+    
+  const author = ComponentAuthor.find(a => a.authorName === authorName);
+  
+  if (author) {
+    return {
+      authorName: author.authorName,
+      website: author.website,
+      avatar: author.authorName.slice(0, 2).toUpperCase(),
+      slug: authorNameToSlug(author.authorName)
+    };
+  }
+  
+  return null;
+};
+
+// Function to convert author name to URL-friendly slug
+export const authorNameToSlug = (authorName: string) => {
+  return authorName.toLowerCase().replace(/\s+/g, '-');
+};
+
+// Function to get all components by author
+export const getComponentsByAuthor = (authorName: string) => {
+  const author = ComponentAuthor.find(a => a.authorName === authorName);
+  
+  if (!author) return [];
+  
+  // Get all components from all categories and filter by author
+  const allComponents = [
+    ...siteConfig.aiComponents,
+    ...siteConfig.textComponents,
+    ...siteConfig.buttonComponents,
+    ...siteConfig.cardComponents,
+    ...siteConfig.components
+  ];
+  
+  return allComponents.filter(component => 
+    author.components.includes(component.title)
+  );
+};
+
+// Function to get all authors with their slugs
+export const getAllAuthors = () => {
+  return ComponentAuthor.map(author => ({
+    authorName: author.authorName,
+    website: author.website,
+    avatar: author.authorName.slice(0, 2).toUpperCase(),
+    slug: authorNameToSlug(author.authorName),
+    componentCount: author.components.length
+  }));
 };

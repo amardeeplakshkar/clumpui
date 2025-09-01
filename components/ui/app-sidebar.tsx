@@ -4,6 +4,7 @@ import * as React from "react"
 import {
   BookOpen,
   Bot,
+  Code,
   Command,
   Component,
   File,
@@ -17,6 +18,7 @@ import {
   SparklesIcon,
   SquareTerminal,
   Text,
+  Users2,
 } from "lucide-react"
 
 import { NavMain } from "@/components/ui/nav-main"
@@ -55,6 +57,11 @@ const data = {
       })),
     },
     {
+      title: "Creators",
+      url: "/profile",
+      icon: Users2,
+    },
+    {
       title: "AI Components",
       url: "#",
       icon: SparklesIcon,
@@ -75,7 +82,7 @@ const data = {
         Icon: component.Icon && component.Icon
       })),
     },
-     {
+    {
       title: "Cards",
       url: "#",
       icon: IdCard,
