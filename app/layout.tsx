@@ -40,9 +40,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <RootProvider>
+        {/* <RootProvider> */}
         {children}
-        </RootProvider>
+        {/* </RootProvider> */}
       </body>
     </html>
   );
