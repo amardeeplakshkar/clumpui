@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import fs from 'fs';
 import path from 'path';
 import Preview from "@/components/core/Preview";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 async function getComponentFromParams(props: {
     params: Promise<{ slug: string }>
@@ -90,9 +91,14 @@ export default async function ComponentPage(props: {
 
     return (
         <>
-            <Preview
-                component={component}
-            />
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+            >
+                <Preview
+                    component={component}
+                />
+            </ThemeProvider>
         </>
     );
 }
