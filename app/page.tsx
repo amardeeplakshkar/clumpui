@@ -306,15 +306,12 @@ export default function Home() {
                 <div>
                   <p className="text-sm text-muted-foreground mb-2">1. Install a component</p>
                   <PackageManagerTabs
-                    registryUrl="https://clumpui.amardeep.space/r/gradient-button"
+                    registryUrl="https://clumpui.amardeep.space/r/gradient-button.json"
                   />
                 </div>
 
                 <div>
                   <p className="text-sm text-muted-foreground mb-2">2. Use it in your project</p>
-                  {/* <code className="block bg-background p-3 rounded text-sm font-mono">
-                    {`import GradientButton from "@/components/ui/gradient-button"`}
-                  </code> */}
                   <CodeBlock>
                     <CodeBlockGroup className="border-border border-b px-4 py-2">
                       <div className="flex items-center gap-2">
