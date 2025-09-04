@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import Link from 'next/link'
-import { getAuthorProfile, authorNameToSlug } from '@/lib/utils'
+import { getAuthorProfile, authorNameToSlug, cn } from '@/lib/utils'
 import { Separator } from '@radix-ui/react-separator'
 import PackageManagerTabs from '../ui/tabs-02'
 
@@ -133,13 +133,19 @@ const ProjectCard = ({ url, title, thumbnails, showDetails = true }: { title: st
 };
 
 const InfoCard = ({ component, profile }: { component: any, profile: any }) => {
+  const [src, setSrc] = useState(`/media/${component.name}.png`);
   return (
-    <div className='flex flex-col flex-1 gap-4'>
+    <div className='flex flex-col flex-1  gap-2'>
       <PackageManagerTabs
         registryUrl={'"' + process.env.NEXT_PUBLIC_BASE_URL + '/r/' + component.name + '.json"'}
       />
       <Card className="w-full max-w-sm rounded-xl">
-        <CardHeader>
+        <CardHeader className='gap-0'>
+          <img
+            src={src}
+            onError={() => setSrc(`https://placehold.co/190x108?text=${component.name}`)}
+            className="object-center aspect-video border rounded-lg"
+            alt="" />
           <CardTitle className="text-lg">{component.name.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</CardTitle>
           <p className="text-sm text-muted-foreground">
             {component.description}
@@ -203,15 +209,18 @@ const InfoCard = ({ component, profile }: { component: any, profile: any }) => {
           </div>}
           <Separator className="bg-muted/30" />
           {component.registryDependencies && <div>
-            <p className="text-xs text-muted-foreground mb-1">npm dependencies</p>
+            <p className="text-xs text-muted-foreground mb-1">shadcn registry</p>
             <div className="flex flex-wrap gap-1">
               {
-                component.registryDependencies.map((dep: string, i: number) =>
-                  <Link target='_blank' rel="noopener noreferrer" href={`https://ui.shadcn.com/docs/components/${dep}`} key={i} className="text-xs">
-                    <Badge variant={'outline'} className=''>
-                      {dep}
-                    </Badge>
-                  </Link>
+                component.registryDependencies.map((dep: string, i: number) => {
+                  const isUrl = dep.startsWith("https")
+                  return (
+                    <Link target='_blank' rel="noopener noreferrer" href={cn(!isUrl ? `https://ui.shadcn.com/docs/components/${dep}` : dep)} key={i} className="text-xs">
+                      <Badge variant={'outline'} className=''>
+                        {dep}
+                      </Badge>
+                    </Link>)
+                }
                 )
               }
             </div>
