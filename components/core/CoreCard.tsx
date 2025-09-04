@@ -28,6 +28,7 @@ const CategoryCard = ({ title, thumbnails, showDetails = true }: { title: string
               src={src}
               onError={() => setSrc(`https://placehold.co/190x108?text=${item}`)}
               alt=""
+              loading='lazy'
               className="object-cover p-0.5 rounded-lg w-full h-full absolute"
               initial={false}
               animate={
@@ -91,6 +92,7 @@ const ProjectCard = ({ url, title, thumbnails, showDetails = true }: { title: st
         <div className="relative grid grid-cols-2 gap-1 rounded-lg overflow-hidden h-[216px]">
           <img
             src={src}
+            loading='lazy'
             onError={() => setSrc(`https://placehold.co/190x108?text=${thumbnails[0]}`)}
             alt=""
             className="scale-110 group-hover:scale-105 object-cover p-0.5 rounded-lg w-full h-full absolute"
@@ -143,6 +145,7 @@ const InfoCard = ({ component, profile }: { component: any, profile: any }) => {
         <CardHeader className='gap-0'>
           <img
             src={src}
+            loading='lazy'
             onError={() => setSrc(`https://placehold.co/190x108?text=${component.name}`)}
             className="object-center aspect-video border rounded-lg"
             alt="" />
