@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
 import { Button } from '../ui/button'
 import { Badge } from '../ui/badge'
 import Link from 'next/link'
-import { getAuthorProfile, authorNameToSlug } from '@/lib/utils'
+import { getAuthorProfile, authorNameToSlug, cn } from '@/lib/utils'
 import { Separator } from '@radix-ui/react-separator'
 import PackageManagerTabs from '../ui/tabs-02'
 
@@ -20,40 +20,45 @@ const CategoryCard = ({ title, thumbnails, showDetails = true }: { title: string
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative grid grid-cols-2 gap-1 rounded-lg overflow-hidden h-[216px]">
-        {thumbnails.map((item: string, i: number) => (
-          <motion.img
-            key={i}
-            src={`https://placehold.co/190x108?text=${item}`}
-            alt=""
-            className="object-cover p-0.5 rounded-lg w-full h-full absolute"
-            initial={false}
-            animate={
-              isHovered
-                ? i === 0
-                  ? {
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    opacity: 1,
-                    zIndex: 10
-                  }
+        {thumbnails.map((item: string, i: number) => {
+          const [src, setSrc] = useState(`/media/${item}.png`);
+          return (
+            <motion.img
+              key={i}
+              src={src}
+              onError={() => setSrc(`https://placehold.co/190x108?text=${item}`)}
+              alt=""
+              loading='lazy'
+              className="object-cover p-0.5 rounded-lg w-full h-full absolute"
+              initial={false}
+              animate={
+                isHovered
+                  ? i === 0
+                    ? {
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      opacity: 1,
+                      zIndex: 10
+                    }
+                    : {
+                      opacity: 0,
+                      zIndex: 0
+                    }
                   : {
-                    opacity: 0,
-                    zIndex: 0
+                    top: `${Math.floor(i / 2) * 50}%`,
+                    left: `${(i % 2) * 50}%`,
+                    width: '50%',
+                    height: '50%',
+                    opacity: 1,
+                    zIndex: 1
                   }
-                : {
-                  top: `${Math.floor(i / 2) * 50}%`,
-                  left: `${(i % 2) * 50}%`,
-                  width: '50%',
-                  height: '50%',
-                  opacity: 1,
-                  zIndex: 1
-                }
-            }
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-          />
-        ))}
+              }
+              transition={{ duration: 0.2, ease: 'easeInOut' }}
+            />
+          )
+        })}
       </div>
 
       {showDetails && <div className="flex items-center justify-between pt-2">
@@ -73,11 +78,10 @@ const CategoryCard = ({ title, thumbnails, showDetails = true }: { title: string
   )
 }
 
-const ProjectCard = ({ url, title, thumbnails, showDetails=true }: { title: string, thumbnails: any, url: string, showDetails?: boolean }) => {
+const ProjectCard = ({ url, title, thumbnails, showDetails = true }: { title: string, thumbnails: any, url: string, showDetails?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   const profile = getAuthorProfile(title);
-
+  const [src, setSrc] = useState(`/media/${thumbnails[0]}.png`);
   return (
     <Link href={url}>
       <Card
@@ -87,9 +91,11 @@ const ProjectCard = ({ url, title, thumbnails, showDetails=true }: { title: stri
       >
         <div className="relative grid grid-cols-2 gap-1 rounded-lg overflow-hidden h-[216px]">
           <img
-            src={`https://placehold.co/190x108?text=${thumbnails[0]}`}
+            src={src}
+            loading='lazy'
+            onError={() => setSrc(`https://placehold.co/190x108?text=${thumbnails[0]}`)}
             alt=""
-            className="object-cover p-0.5 rounded-lg w-full h-full absolute"
+            className="scale-110 group-hover:scale-105 object-cover p-0.5 rounded-lg w-full h-full absolute"
           />
           <motion.div
             initial={{ opacity: 0 }}
@@ -105,10 +111,10 @@ const ProjectCard = ({ url, title, thumbnails, showDetails=true }: { title: stri
 
         {showDetails && <div className="flex items-center pt-2">
           <Link href={`/profile/${profile.authorName.toLowerCase().replace(/\s+/g, '-')}`}>
-          <Avatar>
-            <AvatarImage src={`https://api.microlink.io/?url=${profile.website}&embed=logo.url`} />
-            <AvatarFallback>{profile.avatar}</AvatarFallback>
-          </Avatar>
+            <Avatar>
+              <AvatarImage src={`https://api.microlink.io/?url=${profile.website}&embed=logo.url`} />
+              <AvatarFallback>{profile.avatar}</AvatarFallback>
+            </Avatar>
           </Link>
           <div className="flex flex-col justify-center ml-2">
             <h3 className="font-semibold tracking-wide leading-4 line-clamp-1">{title.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</h3>
@@ -129,13 +135,20 @@ const ProjectCard = ({ url, title, thumbnails, showDetails=true }: { title: stri
 };
 
 const InfoCard = ({ component, profile }: { component: any, profile: any }) => {
+  const [src, setSrc] = useState(`/media/${component.name}.png`);
   return (
-    <div className='flex flex-col flex-1 gap-4'>
+    <div className='flex flex-col flex-1  gap-2'>
       <PackageManagerTabs
         registryUrl={'"' + process.env.NEXT_PUBLIC_BASE_URL + '/r/' + component.name + '.json"'}
       />
       <Card className="w-full max-w-sm rounded-xl">
-        <CardHeader>
+        <CardHeader className='gap-0'>
+          <img
+            src={src}
+            loading='lazy'
+            onError={() => setSrc(`https://placehold.co/190x108?text=${component.name}`)}
+            className="object-center aspect-video border rounded-lg"
+            alt="" />
           <CardTitle className="text-lg">{component.name.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</CardTitle>
           <p className="text-sm text-muted-foreground">
             {component.description}
@@ -199,15 +212,18 @@ const InfoCard = ({ component, profile }: { component: any, profile: any }) => {
           </div>}
           <Separator className="bg-muted/30" />
           {component.registryDependencies && <div>
-            <p className="text-xs text-muted-foreground mb-1">npm dependencies</p>
+            <p className="text-xs text-muted-foreground mb-1">shadcn registry</p>
             <div className="flex flex-wrap gap-1">
               {
-                component.registryDependencies.map((dep: string, i: number) =>
-                  <Link target='_blank' rel="noopener noreferrer" href={`https://ui.shadcn.com/docs/components/${dep}`} key={i} className="text-xs">
-                    <Badge variant={'outline'} className=''>
-                      {dep}
-                    </Badge>
-                  </Link>
+                component.registryDependencies.map((dep: string, i: number) => {
+                  const isUrl = dep.startsWith("https")
+                  return (
+                    <Link target='_blank' rel="noopener noreferrer" href={cn(!isUrl ? `https://ui.shadcn.com/docs/components/${dep}` : dep)} key={i} className="text-xs">
+                      <Badge variant={'outline'} className=''>
+                        {dep}
+                      </Badge>
+                    </Link>)
+                }
                 )
               }
             </div>

@@ -1,37 +1,43 @@
+import Anthropic from "@/components/icons/anthropic";
+import DeepSeek from "@/components/icons/deepseek";
+import Gemini from "@/components/icons/gemini";
+import MistralAI from "@/components/icons/mistral";
+import Nextjs from "@/components/icons/nextjs";
+import OpenAI from "@/components/icons/open-ai";
 import { cn } from "@/lib/utils";
 import { Marquee } from "@/registry/magicui/marquee";
 
 const logos = [
   {
     name: "Microsoft",
-    img: "https://cdn.simpleicons.org/microsoft/000/fff",
+    img: <Anthropic/>,
   },
   {
     name: "Apple",
-    img: "https://cdn.simpleicons.org/apple/000/fff",
+    img: <Gemini/>,
   },
   {
     name: "Google",
-    img: "https://cdn.simpleicons.org/google/000/fff",
+    img: <OpenAI/>,
   },
   {
     name: "Facebook",
-    img: "https://cdn.simpleicons.org/facebook/000/fff",
+    img: DeepSeek,
   },
   {
     name: "LinkedIn",
-    img: "https://cdn.simpleicons.org/linkedin/000/fff",
+    img: <MistralAI/>,
   },
   {
     name: "Twitter",
-    img: "https://cdn.simpleicons.org/twitter/000/fff",
+    img: <Nextjs/>,
   },
 ];
 
-const Logo = ({ name, img }: { name: string; img: string }) => {
+const Logo = ({ name, img }: { name: string; img: any }) => {
   return (
-    <div className={cn("size-12 cursor-pointer")}>
-      <img src={img} alt={name} />
+    <div className={cn("size-12 cursor-pointer bg-red-500")}>
+      <img/>
     </div>
   );
 };
